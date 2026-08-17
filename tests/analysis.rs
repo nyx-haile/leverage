@@ -32,11 +32,12 @@ fn omits_constant_features_instead_of_returning_nan_correlations() {
             .iter()
             .all(|correlation| correlation.coefficient.is_finite())
     );
+    assert!(!report.correlations.is_empty());
     assert!(
         !report
             .correlations
             .iter()
-            .any(|correlation| correlation.feature == "meals")
+            .any(|correlation| correlation.feature == "missed meals")
     );
     assert!(
         report
